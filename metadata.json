@@ -1,0 +1,6 @@
+{
+  "name": "Money Monitor",
+  "description": "A minimalist personal finance dashboard with translucent glass panels and coastal sunset aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

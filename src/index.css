@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Oswald', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --color-midnight: #101322;
+    --color-pink: #FF5C9A;
+    --color-cyan: #55D6E8;
+    --color-sunset: #FF9866;
+    --color-soft-white: #F4F4F8;
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #101322;
+    color: #F4F4F8;
+    min-height: 100%;
+    scroll-behavior: smooth;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.glass-pane {
+  background: rgba(14, 16, 30, 0.16);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(6, 8, 18, 0.18);
+}
+
+.glass-pane-subtle {
+  background: rgba(14, 16, 30, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(6, 8, 18, 0.14);
+}
+
+.glass-modal {
+  background: rgba(16, 19, 34, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(4, 6, 16, 0.45);
+}
+
+.glass-input {
+  background: rgba(14, 16, 30, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #F4F4F8;
+  transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: rgba(85, 214, 232, 0.8);
+  background: rgba(14, 16, 30, 0.52);
+}
+
+.text-legible {
+  text-shadow: 0 1px 10px rgba(8, 10, 22, 0.55);
+}
+
+.glass-input option {
+  background-color: #14182b;
+  color: #F4F4F8;
+}
+
+/* Subtle custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
