@@ -7,9 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Least-privilege token permissions at workflow level
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 # Allow one concurrent deployment; do not cancel in-progress deployments
 concurrency:
@@ -33,13 +34,15 @@ jobs:
         if: github.event_name != 'pull_request'
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
-            npm ci
+            npm ci --no-audit --no-fund
           else
-            npm install
+            npm install --no-audit --no-fund --legacy-peer-deps
           fi
 
       - name: Typecheck
@@ -61,9 +64,6 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
